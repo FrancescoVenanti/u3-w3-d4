@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Container } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 interface ArticleItem {
@@ -36,19 +36,19 @@ const SingleNew = () => {
 		fetchArticle();
 	}, [paramsId.singleNew]);
 	return (
-		<Container className="text-start">
-			<div className="mt-3">
+		<Container className="text-center">
+			<Row className="mt-3 text-start">
 				{article && (
-					<>
+					<Col xs={8} className="offset-2">
 						<h1>{article.title}</h1>
 						<p>{article.summary}</p>
 						<img className="d-block rounded-4" style={{ width: 500 }} src={article.image_url} alt="" />
 						<Link to={article.url}>
 							<Button className="btn btn-primary mt-3">Read more...</Button>
 						</Link>
-					</>
+					</Col>
 				)}
-			</div>
+			</Row>
 		</Container>
 	);
 };

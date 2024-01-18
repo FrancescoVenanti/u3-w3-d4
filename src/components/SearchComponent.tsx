@@ -23,7 +23,7 @@ const SearchComponent = () => {
 			const response = await fetch(url);
 			if (response.ok) {
 				const data = await response.json();
-				await setNews(data.results);
+				setNews(data.results);
 			} else {
 				alert("Error fetching results");
 			}
